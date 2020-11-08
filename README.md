@@ -15,10 +15,13 @@ Link to Github Pages:
 https://codyops.github.io/Weathercams/
 
 Mobile Visual:
+
 ![Screen Shot 2020-11-08 at 3 27 41 PM](https://user-images.githubusercontent.com/70075378/98485884-f9a52600-21d6-11eb-9052-35b3cd09af00.png)
 
 iPad Visual :
+
 ![Screen Shot 2020-11-08 at 3 27 26 PM](https://user-images.githubusercontent.com/70075378/98485897-14779a80-21d7-11eb-82c7-04ad05a66711.png)
 
 Desktop Visual:
+
 ![Screen Shot 2020-11-08 at 3 26 38 PM](https://user-images.githubusercontent.com/70075378/98485905-22c5b680-21d7-11eb-9b52-a132cee7b167.png)
