@@ -24,4 +24,4 @@ iPad Visual :
 
 Desktop Visual:
 
-![Screen Shot 2020-11-08 at 3 26 38 PM](https://user-images.githubusercontent.com/70075378/98485905-22c5b680-21d7-11eb-9b52-a132cee7b167.png)
+![Screen Shot 2020-11-08 at 3 35 41 PM](https://user-images.githubusercontent.com/70075378/98486037-1c840a00-21d8-11eb-9b07-7106a008cbcc.png)
