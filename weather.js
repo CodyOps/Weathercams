@@ -16,6 +16,7 @@ var APIKey2 = "OkhKOiAdwFCcdo0j28t9g73szM8dRq0O";
 var video = document.getElementById("live-webcam");
 var webcamImage = document.getElementById("webcam-image");
 var webcamCityName = document.getElementById("webcam-city-name");
+var webcamLocationName = document.getElementById("webcam-location-name");
 
 //FUNCTION DECLARATION
 //FUNCTION TO REACH OPENWEATHER API
@@ -205,13 +206,18 @@ function webcam(name) {
           return response.json();
         })
         .then(function (data) {
-          console.log(data.result.webcams[0].image.current);
+          console.log(data);
 
           webcamImage.setAttribute(
             "src",
             data.result.webcams[0].image.current.preview
           );
-          webcamCityName.textContent = name;
+          webcamCityName.textContent =
+            data.result.webcams[0].location.city +
+            ", " +
+            data.result.webcams[0].location.country;
+
+          webcamLocationName.textContent = data.result.webcams[0].title;
         })
         .catch(function (error) {
           console.log(error);
