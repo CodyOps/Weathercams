@@ -232,7 +232,7 @@ function saveSearchHistory() {
     historyContent.setAttribute("value", searchHistory[index]);
     historyContent.addEventListener("click", function () {
       getWeather(searchHistory[index]);
-      webcams(historyContent.value);
+      webcams(searchHistory[index]);
     });
     cityHistory.append(historyContent);
   }
