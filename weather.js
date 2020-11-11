@@ -14,6 +14,8 @@ var searchHistory = JSON.parse(localStorage.getItem("search")) || [];
 var APIKey = "11cc6738fb7101f2239490031655308f";
 var APIKey2 = "OkhKOiAdwFCcdo0j28t9g73szM8dRq0O";
 var video = document.getElementById("live-webcam");
+var webcamImage = document.getElementById("webcam-image");
+var webcamCityName = document.getElementById("webcam-city-name");
 
 //FUNCTION DECLARATION
 //FUNCTION TO REACH OPENWEATHER API
@@ -190,35 +192,26 @@ function webcam(name) {
     .then(function (data) {
       var lat = data.coord.lat;
       var long = data.coord.lon;
-      //`https://api.windy.com/api/webcams/api/webcams/v2/list/nearby=${lat},${lng},10`
-      var queryURL = `https://api.windy.com/api/webcams/v2/list/nearby=${lat},${long},100?key=${APIKey2}/property=live`;
 
-      fetch(queryURL)
+      var queryURL = `https://api.windy.com/api/webcams/v2/list/nearby=${lat},${long},20?show=webcams:location,image`;
+      //Added headers: with the api and content-type
+      fetch(queryURL, {
+        headers: {
+          "x-windy-key": "OkhKOiAdwFCcdo0j28t9g73szM8dRq0O",
+          "Content-Type": "application/json",
+        },
+      })
         .then(function (response) {
           return response.json();
         })
         .then(function (data) {
-          console.log(data);
-          console.log(data.result.webcams[0].id);
+          console.log(data.result.webcams[0].image.current);
 
-          // fetch(
-          //   `https://api.windy.com/api/webcams/v2/list/webcam=${data.result.webcams[0].id}?key=${APIKey2}`
-          // )
-          //   .then(function (response) {
-          //     return response.json();
-          //   })
-          //   .then(function (data) {
-          //     console.log(data);
-          //   })
-          //   .catch(function (error) {
-          //     console.log(error);
-          //   });
-          var localWebcam = name(cityInput);
-
-          video.textContent = localWebcam.text(localWebcam[0].value);
-
-          $("#live-webcam").text("Live Look: ");
-          $("#live-webcam").append(localWebcam.text(localWebcam[0].value));
+          webcamImage.setAttribute(
+            "src",
+            data.result.webcams[0].image.current.preview
+          );
+          webcamCityName.textContent = name;
         })
         .catch(function (error) {
           console.log(error);
@@ -239,6 +232,7 @@ function saveSearchHistory() {
     historyContent.setAttribute("value", searchHistory[index]);
     historyContent.addEventListener("click", function () {
       getWeather(searchHistory[index]);
+      webcams(historyContent.value);
     });
     cityHistory.append(historyContent);
   }
